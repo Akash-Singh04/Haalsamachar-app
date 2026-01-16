@@ -21,15 +21,15 @@ func InitDB() *sql.DB {
 	}
 
 	//Note: Use this connectionstr to access personal database which is on aiven cloud
-	// host := os.Getenv("DB_HOST")
-	// port := os.Getenv("DB_PORT")
-	// user := os.Getenv("DB_USER")
-	// password := os.Getenv("DB_PASSWORD")
-	// dbname := os.Getenv("DB_NAME")
-	// connStr := "host=" + host + " port=" + port + " user=" + user + " password=" + password + " dbname=" + dbname + " sslmode=require"
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	dbname := os.Getenv("DB_NAME")
+	connStr := "host=" + host + " port=" + port + " user=" + user + " password=" + password + " dbname=" + dbname + " sslmode=require"
 
 	//Note: Use this connectionstr to access the production database which is on neontech cloud
-	connStr := os.Getenv("DATABASE_URL")
+	// connStr := os.Getenv("DATABASE_URL")
 
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
